@@ -10,7 +10,7 @@ spring:
 # 服务的扫描包
 dubbo:
   scan:
-    base-packages: com.carslius.haoke.dubbo.server.api
+    base-packages: com.carsonlius.dubbo.server.api
     # 应用名称
   application:
     name:  dubbo-provider-house-resources

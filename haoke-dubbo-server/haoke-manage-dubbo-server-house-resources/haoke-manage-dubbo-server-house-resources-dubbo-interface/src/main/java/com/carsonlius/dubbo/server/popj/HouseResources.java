@@ -3,6 +3,7 @@ package com.carsonlius.dubbo.server.popj;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
 import lombok.experimental.Accessors;
 
 
@@ -16,6 +17,7 @@ import lombok.experimental.Accessors;
  */
 @Accessors(chain = true)
 @TableName("tb_house_resources")
+@Data
 public class HouseResources extends BasePojo {
 
     private static final long serialVersionUID = 4986985691132319215L;
