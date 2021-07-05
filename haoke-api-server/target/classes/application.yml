@@ -1,0 +1,11 @@
+server:
+  port: 18080
+dubbo:
+  application:
+    name: dubbo-consumer-haoke-manage
+  registry:
+    address: zookeeper://vagrant:2181
+    client: zkclient
+spring:
+  application:
+          name: hao-manage-api-server
