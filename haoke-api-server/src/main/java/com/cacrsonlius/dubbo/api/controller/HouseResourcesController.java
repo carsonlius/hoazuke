@@ -1,6 +1,7 @@
 package com.cacrsonlius.dubbo.api.controller;
 
 import com.cacrsonlius.dubbo.api.service.HouseResourcesService;
+import com.cacrsonlius.dubbo.api.vo.TableResult;
 import com.carsonlius.dubbo.server.popj.HouseResources;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,7 +22,7 @@ public class HouseResourcesController {
             if (save) {
                 return ResponseEntity.status(HttpStatus.CREATED).build();
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -29,8 +30,13 @@ public class HouseResourcesController {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
 
+
     @GetMapping
-    public ResponseEntity<String> get(){
-        return ResponseEntity.ok("ok");
+    public ResponseEntity<TableResult<HouseResources>> list(HouseResources houseResources,
+                                                            @RequestParam(name = "currentPage", defaultValue = "1") Integer current,
+                                                            @RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize) {
+
+        return ResponseEntity.ok(this.houseResourcesService.queryList(houseResources, current, pageSize));
     }
+
 }

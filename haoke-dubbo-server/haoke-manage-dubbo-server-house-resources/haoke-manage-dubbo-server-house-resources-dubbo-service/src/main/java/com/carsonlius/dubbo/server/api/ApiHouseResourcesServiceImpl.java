@@ -3,6 +3,7 @@ package com.carsonlius.dubbo.server.api;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.carsonlius.dubbo.server.popj.HouseResources;
 import com.carsonlius.dubbo.server.service.HouseResourcesService;
+import com.carsonlius.dubbo.server.vo.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
@@ -14,5 +15,10 @@ public class ApiHouseResourcesServiceImpl implements ApiHouseResourcesService {
     @Override
     public int saveHouseResources(HouseResources houseResources) {
         return houseResourcesService.saveHouseResources(houseResources);
+    }
+
+    @Override
+    public PageInfo<HouseResources> queryHouseResourcesList(int pageNo, int pageSize, HouseResources queryCondition) {
+        return null;
     }
 }

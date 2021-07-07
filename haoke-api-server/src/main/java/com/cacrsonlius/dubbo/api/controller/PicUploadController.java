@@ -3,7 +3,6 @@ package com.cacrsonlius.dubbo.api.controller;
 import com.cacrsonlius.dubbo.api.service.PicUploadService;
 import com.cacrsonlius.dubbo.api.vo.PicUploadResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
