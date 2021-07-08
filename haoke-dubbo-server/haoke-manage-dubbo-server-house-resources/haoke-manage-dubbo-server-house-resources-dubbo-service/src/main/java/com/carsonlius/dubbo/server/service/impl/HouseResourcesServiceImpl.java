@@ -33,9 +33,10 @@ public class  HouseResourcesServiceImpl extends BaseServiceImpl<HouseResources> 
 
     @Override
     public PageInfo<HouseResources> queryHouseResourcesList(int pageNo, int pageSize, HouseResources queryCondition) {
+
         QueryWrapper<HouseResources> queryWrapper = new QueryWrapper<>(queryCondition);
-        queryWrapper.orderByDesc("time");
-        IPage<HouseResources> iPage = super.queryPageList(queryWrapper,pageNo, pageSize);
+        queryWrapper.orderByDesc("updated");
+        IPage<HouseResources> iPage = queryPageList(queryWrapper,pageNo, pageSize);
 
         int total = Math.toIntExact(iPage.getTotal());
         int pageNum = (int) iPage.getCurrent();

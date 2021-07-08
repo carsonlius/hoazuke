@@ -129,7 +129,7 @@ public abstract class BaseServiceImpl<T extends BasePojo> {
      * @return
      */
     public IPage<T> queryPageList(QueryWrapper<T> queryWrapper, Integer pageNo, Integer pageSize) {
-        IPage<T> iPage = new Page<T>(pageNo, pageSize);
-        return this.mapper.selectPage(iPage, queryWrapper);
+//        Page<T> iPage = new Page<T>(pageNo, pageSize);
+        return this.mapper.selectPage(new Page<T>(pageNo, pageSize), queryWrapper);
     }
 }

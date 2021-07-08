@@ -19,6 +19,6 @@ public class ApiHouseResourcesServiceImpl implements ApiHouseResourcesService {
 
     @Override
     public PageInfo<HouseResources> queryHouseResourcesList(int pageNo, int pageSize, HouseResources queryCondition) {
-        return null;
+        return houseResourcesService.queryHouseResourcesList(pageNo,pageSize,queryCondition);
     }
 }
