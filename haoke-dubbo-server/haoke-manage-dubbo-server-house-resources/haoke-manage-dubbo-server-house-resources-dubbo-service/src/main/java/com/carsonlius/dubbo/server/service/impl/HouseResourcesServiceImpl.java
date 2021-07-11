@@ -3,6 +3,7 @@ package com.carsonlius.dubbo.server.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.carsonlius.dubbo.server.popj.HouseResources;
+import com.carsonlius.dubbo.server.service.BaseServiceImpl;
 import com.carsonlius.dubbo.server.service.HouseResourcesService;
 import com.carsonlius.dubbo.server.vo.PageInfo;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,7 @@ public class  HouseResourcesServiceImpl extends BaseServiceImpl<HouseResources> 
     public PageInfo<HouseResources> queryHouseResourcesList(int pageNo, int pageSize, HouseResources queryCondition) {
 
         QueryWrapper<HouseResources> queryWrapper = new QueryWrapper<>(queryCondition);
+
         queryWrapper.orderByDesc("updated");
         IPage<HouseResources> iPage = queryPageList(queryWrapper,pageNo, pageSize);
 
@@ -43,5 +45,10 @@ public class  HouseResourcesServiceImpl extends BaseServiceImpl<HouseResources> 
         List<HouseResources> houseResourcesList = iPage.getRecords();
 
         return new PageInfo<HouseResources>(total, pageNum, pageSize, houseResourcesList);
+    }
+
+    @Override
+    public HouseResources queryHouseResourcesById(Long id) {
+        return super.queryById(id);
     }
 }

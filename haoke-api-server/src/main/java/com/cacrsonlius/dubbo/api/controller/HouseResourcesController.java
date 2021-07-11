@@ -39,4 +39,11 @@ public class HouseResourcesController {
         return ResponseEntity.ok(this.houseResourcesService.queryList(houseResources, current, pageSize));
     }
 
+    @GetMapping("/id")
+    public ResponseEntity<HouseResources> queryHouseResourceById(@RequestParam(name = "id") Long id){
+        HouseResources houseResources = houseResourcesService.queryHouseResourceById(id);
+        return ResponseEntity.ok(houseResources);
+    }
+
+
 }

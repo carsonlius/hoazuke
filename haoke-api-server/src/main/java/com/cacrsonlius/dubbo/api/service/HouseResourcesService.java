@@ -6,6 +6,7 @@ import com.cacrsonlius.dubbo.api.vo.TableResult;
 import com.carsonlius.dubbo.server.api.ApiHouseResourcesService;
 import com.carsonlius.dubbo.server.popj.HouseResources;
 import com.carsonlius.dubbo.server.vo.PageInfo;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,4 +28,7 @@ public class HouseResourcesService {
         return new TableResult<HouseResources>(houseResourcesList, pagination);
     }
 
+    public HouseResources queryHouseResourceById(Long id) {
+        return apiHouseResourcesService.queryHouseResourcesById(id);
+    }
 }

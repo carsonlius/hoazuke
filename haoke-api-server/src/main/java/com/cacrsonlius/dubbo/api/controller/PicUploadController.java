@@ -1,5 +1,6 @@
 package com.cacrsonlius.dubbo.api.controller;
 
+import com.cacrsonlius.dubbo.api.service.PicUploadFileSystemService;
 import com.cacrsonlius.dubbo.api.service.PicUploadService;
 import com.cacrsonlius.dubbo.api.vo.PicUploadResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,14 @@ public class PicUploadController {
     @Autowired
     private PicUploadService picUploadService;
 
+    @Autowired
+    private PicUploadFileSystemService picUploadFileSystemService;
+
     @PostMapping
     public PicUploadResult upload(@RequestParam("housePic")MultipartFile multipartFile){
 
-        return picUploadService.upload(multipartFile);
+        return picUploadFileSystemService.upload(multipartFile);
+//        return picUploadService.upload(multipartFile);
     }
+
 }

@@ -21,3 +21,6 @@ dubbo:
   registry:
     address: zookeeper://vagrant:2181
     client: zkclient
+logging:
+  level:
+    com.carsonlius.dubbo.server.mapper : DEBUG

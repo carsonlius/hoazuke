@@ -1,4 +1,4 @@
-package com.carsonlius.dubbo.server.service.impl;
+package com.carsonlius.dubbo.server.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -129,7 +129,7 @@ public abstract class BaseServiceImpl<T extends BasePojo> {
      * @return
      */
     public IPage<T> queryPageList(QueryWrapper<T> queryWrapper, Integer pageNo, Integer pageSize) {
-//        Page<T> iPage = new Page<T>(pageNo, pageSize);
-        return this.mapper.selectPage(new Page<T>(pageNo, pageSize), queryWrapper);
+        Page<T> iPage = new Page<T>(pageNo, pageSize);
+        return this.mapper.selectPage(iPage, queryWrapper);
     }
 }

@@ -19,4 +19,9 @@ public interface HouseResourcesService {
      */
     PageInfo<HouseResources> queryHouseResourcesList(int pageNo, int pageSize, HouseResources queryCondition);
 
+    /**
+     *
+     * @param id
+     * */
+    HouseResources queryHouseResourcesById(Long id);
 }
