@@ -51,4 +51,14 @@ public class  HouseResourcesServiceImpl extends BaseServiceImpl<HouseResources> 
     public HouseResources queryHouseResourcesById(Long id) {
         return super.queryById(id);
     }
+
+    /**
+     * 更新房源
+     *
+     * @param houseResources
+     */
+    @Override
+    public boolean updateHouseResources(HouseResources houseResources) {
+        return super.update(houseResources) != 0;
+    }
 }

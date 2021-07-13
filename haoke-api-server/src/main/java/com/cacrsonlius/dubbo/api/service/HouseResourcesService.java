@@ -31,4 +31,9 @@ public class HouseResourcesService {
     public HouseResources queryHouseResourceById(Long id) {
         return apiHouseResourcesService.queryHouseResourcesById(id);
     }
+
+    public boolean updateHouseResources(HouseResources houseResources) {
+        return apiHouseResourcesService.updateHouseResources(houseResources);
+    }
+
 }
