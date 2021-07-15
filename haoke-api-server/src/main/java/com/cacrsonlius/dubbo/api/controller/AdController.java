@@ -5,6 +5,7 @@ import com.cacrsonlius.dubbo.api.vo.WebResult;
 import com.carsonlius.dubbo.server.popj.Ad;
 import com.carsonlius.dubbo.server.vo.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -20,6 +21,9 @@ public class AdController {
     @Autowired
     private AdService adService;
 
+    @Autowired
+    private RedisTemplate<String, String> redisTemplate;
+
 
     @GetMapping
     public WebResult queryIndexAd(@RequestParam(name = "type", defaultValue = "1") Integer type, @RequestParam(name = "page", defaultValue = "1") Integer page,
@@ -34,5 +38,17 @@ public class AdController {
         }
 
         return WebResult.ok(originalList);
+    }
+
+    @GetMapping("redisCache")
+    public WebResult testRedisCache(@RequestParam(name ="key") String key, @RequestParam(name = "value") String value){
+        redisTemplate.opsForValue().set(key, value);
+        List<String> list = new ArrayList<>();
+        list.add(key);
+        String values1 = redisTemplate.opsForValue().get(key);
+        list.add(values1);
+
+        return WebResult.ok(list);
+
     }
 }

@@ -9,6 +9,16 @@ dubbo:
 spring:
   application:
           name: hao-manage-api-server
+  redis:
+    jedis:
+      pool:
+        max-wait: 5000
+        min-idle: 10
+        max-idle: 100
+    timeout: 10
+    cluster:
+      max-redirects: 5
+      nodes: vagrant:6390,vagrant:6391,vagrant:6392
 qiniuyun:
   accessKey: XS2jtU0A0eziOEVPeSszPi0CjU0WIC51mnxjq61t
   secretKey: ERAhRD0cTrItl0hpHQ9Gy4Be50_YXvylO2gajKbB
