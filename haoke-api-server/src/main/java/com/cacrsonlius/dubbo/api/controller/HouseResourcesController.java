@@ -49,7 +49,7 @@ public class HouseResourcesController {
     public ResponseEntity update(@RequestBody HouseResources houseResources){
         boolean bool = houseResourcesService.updateHouseResources(houseResources);
         if (bool) {
-            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+             return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         }
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }

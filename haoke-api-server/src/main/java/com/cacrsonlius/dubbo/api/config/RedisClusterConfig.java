@@ -18,7 +18,6 @@ public class RedisClusterConfig {
     public RedisConnectionFactory redisConnectionFactory(){
         RedisClusterConfiguration clusterConfiguration = new RedisClusterConfiguration(clusterConfigurationProperties.getNodes());
         clusterConfiguration.setMaxRedirects(clusterConfigurationProperties.getMaxRedirects());
-//        clusterConfiguration.setClusterNodes(clusterConfigurationProperties.getNodes());
         return new JedisConnectionFactory(clusterConfiguration);
     }
 
