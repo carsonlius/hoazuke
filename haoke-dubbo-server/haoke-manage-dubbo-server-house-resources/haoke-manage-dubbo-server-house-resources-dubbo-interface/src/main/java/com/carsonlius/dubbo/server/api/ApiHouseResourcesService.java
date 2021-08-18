@@ -1,7 +1,10 @@
 package com.carsonlius.dubbo.server.api;
 
 import com.carsonlius.dubbo.server.popj.HouseResources;
+import com.carsonlius.dubbo.server.popj.MongoHouse;
 import com.carsonlius.dubbo.server.vo.PageInfo;
+
+import java.util.List;
 
 public interface ApiHouseResourcesService {
     /**
@@ -28,4 +31,6 @@ public interface ApiHouseResourcesService {
      * 更新房源
      * */
     boolean updateHouseResources(HouseResources houseResources);
+
+     List<MongoHouse> searchHouse(float lng, float lat, int zoom);
 }

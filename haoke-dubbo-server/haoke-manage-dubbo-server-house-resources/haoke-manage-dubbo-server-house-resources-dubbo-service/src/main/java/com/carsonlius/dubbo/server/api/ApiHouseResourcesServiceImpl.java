@@ -2,9 +2,12 @@ package com.carsonlius.dubbo.server.api;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.carsonlius.dubbo.server.popj.HouseResources;
+import com.carsonlius.dubbo.server.popj.MongoHouse;
 import com.carsonlius.dubbo.server.service.HouseResourcesService;
 import com.carsonlius.dubbo.server.vo.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 
 @Service(version = "1.0.0")
@@ -30,5 +33,10 @@ public class ApiHouseResourcesServiceImpl implements ApiHouseResourcesService {
     @Override
     public boolean updateHouseResources(HouseResources houseResources) {
         return houseResourcesService.updateHouseResources(houseResources);
+    }
+
+    @Override
+    public List<MongoHouse> searchHouse(float lng, float lat, int zoom) {
+        return houseResourcesService.searchHouse(lng, lat, zoom);
     }
 }

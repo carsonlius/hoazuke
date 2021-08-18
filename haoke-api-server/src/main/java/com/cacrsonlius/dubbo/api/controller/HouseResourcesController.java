@@ -3,11 +3,13 @@ package com.cacrsonlius.dubbo.api.controller;
 import com.cacrsonlius.dubbo.api.service.HouseResourcesService;
 import com.cacrsonlius.dubbo.api.vo.TableResult;
 import com.carsonlius.dubbo.server.popj.HouseResources;
+import com.carsonlius.dubbo.server.popj.MongoHouse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("house/resources")
@@ -52,6 +54,13 @@ public class HouseResourcesController {
              return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         }
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+    }
+
+    @GetMapping("/around")
+    public ResponseEntity<List<MongoHouse>> searchHouse(float lng, float lat, int zoom){
+        List<MongoHouse> mongoHouseList =  houseResourcesService.searchHouse(lng, lat, zoom);
+
+        return ResponseEntity.ok(mongoHouseList);
     }
 
 }

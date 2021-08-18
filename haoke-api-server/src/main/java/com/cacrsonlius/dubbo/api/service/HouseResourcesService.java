@@ -5,8 +5,8 @@ import com.cacrsonlius.dubbo.api.vo.Pagination;
 import com.cacrsonlius.dubbo.api.vo.TableResult;
 import com.carsonlius.dubbo.server.api.ApiHouseResourcesService;
 import com.carsonlius.dubbo.server.popj.HouseResources;
+import com.carsonlius.dubbo.server.popj.MongoHouse;
 import com.carsonlius.dubbo.server.vo.PageInfo;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,4 +36,7 @@ public class HouseResourcesService {
         return apiHouseResourcesService.updateHouseResources(houseResources);
     }
 
+    public List<MongoHouse> searchHouse(float lng, float lat, int zoom){
+        return apiHouseResourcesService.searchHouse(lng, lat, zoom);
+    }
 }
